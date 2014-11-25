@@ -1,7 +1,7 @@
 <template name="post">
   <div class="row">
     <div class="col-sm-3 gray">
-      Posted by <small>{{user}} <br> {{timeLiked}}</small>
+      Posted by <small>{{user}} <br> {{livestamp date}}</small>
     </div>
 
     <div class="col-sm-7">
@@ -43,6 +43,6 @@
 <template name="comment">
   <div class="comment">
     <i>{{comment}}</i>
-    <small class="gray"> by {{user}} {{timeCommented}}</small>
+    <small class="gray"> by {{user}} {{livestamp date}}</small>
   </div>
 </template>

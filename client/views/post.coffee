@@ -16,9 +16,9 @@ Template.post.helpers
   likesCount: -> Likes.find(post:@_id)?.count()
   likedText:-> if Meteor.user() and Likes.findOne({post:@_id, user:Meteor.user().emails[0].address}) then "Unlike" else "Like"
   commentsCount: -> Comments.find(post:@_id)?.count()
-  timeLiked: -> moment(@timestamp).fromNow()
+  date: -> new Date(@timestamp)
   comments: -> Comments.find {post:@_id}
   userLoggedIn: -> Meteor.user()
 
 Template.comment.helpers
-  timeCommented: -> moment(@timestamp).fromNow()
+  date: -> new Date(@timestamp)
