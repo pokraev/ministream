@@ -29,8 +29,8 @@
 
 
       {{#if userLoggedIn}}
-      <div class="input-group comment">
-        <input type="text" class="form-control" name="input-comment" placeholder="create a comment">
+      <div class="input-group comment post={{_id}}">
+        <input type="text" class="form-control" name="input-comment-{{_id}}" placeholder="create a comment">
         <span class="input-group-btn">
           <button class="btn btn-primary" name="btn-submit-comment">Submit</button>
         </span>

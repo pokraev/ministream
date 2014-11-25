@@ -5,9 +5,9 @@ Template.post.events
 
   "click button[name=btn-submit-comment]": ()->
     user = Meteor.user().emails[0].address
-    comment = $("input[name=input-comment]").val()
+    comment = $("input[name=input-comment-#{@_id}]").val()
     Comments.insert {post:@_id, comment:comment, user:user, timestamp:Date.now()}
-    $("input[name=input-comment]").val('')
+    $("input[name=input-comment-#{@_id}]").val('')
 
 Template.post.helpers
   likesCount: -> Likes.find(post:@_id)?.count()

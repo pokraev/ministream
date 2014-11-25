@@ -8,4 +8,4 @@ Template.posts.helpers
 Template.posts.events
   "click button[name='btn-submit-post']": ->
     Posts.insert {post:$('input[name=input-post]').val(), user:Meteor.user().emails[0].address, timestamp:Date.now()}
-    $('input[name=input-post]').val('')
+    $("input[name=input-comment]").val('')
