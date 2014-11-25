@@ -10,7 +10,7 @@ Template.post.events
 
 Template.post.helpers
   likesCount: -> Likes.find(post:@_id)?.count()
-  notLiked:-> !Likes.findOne({post:@_id, user:Meteor.user().emails[0].address})
+  notLiked:-> if Meteor.user() then !Likes.findOne({post:@_id, user:Meteor.user().emails[0].address})
   commentsCount: -> Comments.find(post:@_id)?.count()
   timeLiked: -> moment(@timestamp).fromNow()
   comments: -> Comments.find {post:@_id}
