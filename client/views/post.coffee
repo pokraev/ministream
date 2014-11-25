@@ -1,13 +1,12 @@
 Template.post.events
-  "click a[name=btn-like]": () ->
-    user = Meteor.user().emails[0].address
-    Likes.insert post:@_id, user:user
+  "click a": ->
+    Likes.insert post:@_id, user:Meteor.user().emails[0].address
 
-  "click button[name=btn-submit-comment]": ()->
-    user = Meteor.user().emails[0].address
-    comment = $("input[name=input-comment-#{@_id}]").val()
-    Comments.insert {post:@_id, comment:comment, user:user, timestamp:Date.now()}
-    $("input[name=input-comment-#{@_id}]").val('')
+  "click button": () ->
+    comment = Template.instance().$("input").val()
+    if comment
+      Comments.insert {post:@_id, comment:comment, user:Meteor.user().emails[0].address, timestamp:Date.now()}
+      Template.instance().$("input").val('')
 
 Template.post.helpers
   likesCount: -> Likes.find(post:@_id)?.count()

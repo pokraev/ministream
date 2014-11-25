@@ -9,7 +9,7 @@
 
       {{#if userLoggedIn}}
         {{#if notLiked}}
-          <a name="btn-like" href="#">Like</a>
+          <a href="#">Like</a>
         {{/if}}
       {{/if}}
 
@@ -27,12 +27,11 @@
         {{> comment}}
       {{/each}}
 
-
       {{#if userLoggedIn}}
-      <div class="input-group comment post={{_id}}">
-        <input type="text" class="form-control" name="input-comment-{{_id}}" placeholder="create a comment">
+      <div class="input-group comment">
+        <input type="text" class="form-control" placeholder="create a comment">
         <span class="input-group-btn">
-          <button class="btn btn-primary" name="btn-submit-comment">Submit</button>
+          <button class="btn btn-primary">Submit</button>
         </span>
       </div>
       {{/if}}

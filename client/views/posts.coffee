@@ -6,6 +6,8 @@ Template.posts.helpers
   user: -> Meteor.user()
 
 Template.posts.events
-  "click button[name='btn-submit-post']": ->
-    Posts.insert {post:$('input[name=input-post]').val(), user:Meteor.user().emails[0].address, timestamp:Date.now()}
-    $("input[name=input-comment]").val('')
+  "click button[name=submit-post]": ()->
+    post = $("input[name=post]").val()
+    if post
+      Posts.insert {post:post, user:Meteor.user().emails[0].address, timestamp:Date.now()}
+      Template.instance().$("input").val('')
