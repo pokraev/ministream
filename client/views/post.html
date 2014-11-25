@@ -1,0 +1,47 @@
+<template name="post">
+  <div class="row">
+    <div class="col-sm-2 gray">
+      Posted by <small>{{user}} <br> {{timeLiked}}</small>
+    </div>
+
+    <div class="col-sm-7">
+      <h4>{{post}}</h4>
+
+      {{#if notLiked}}
+        <a name="btn-like" href="#">Like</a>
+      {{/if}}
+
+      {{#if likesCount}}
+        <i class="glyphicon glyphicon-thumbs-up navy"></i>
+        <small>{{likesCount}}</small>
+      {{/if}}
+
+      {{#if commentsCount}}
+        <i class="glyphicon glyphicon-comment navy"></i>
+        <small>{{commentsCount}}</small>
+      {{/if}}
+
+      {{#each comments}}
+        {{> comment}}
+      {{/each}}
+
+
+      {{#if userLoggedIn}}
+      <div class="input-group">
+        <input type="text" class="form-control input-comment" name="input-comment" placeholder="create a comment">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" name="btn-submit-comment">Submit</button>
+        </span>
+      </div>
+      {{/if}}
+      <hr/>
+    </div>
+  </div>
+</template>
+
+<template name="comment">
+  <div class="comment">
+    <i>{{comment}}</i>
+    <small class="gray"> by {{user}} {{timeCommented}}</small>
+  </div>
+</template>
