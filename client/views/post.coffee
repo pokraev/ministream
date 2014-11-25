@@ -1,6 +1,10 @@
 Template.post.events
   "click a": ->
-    Likes.insert post:@_id, user:Meteor.user().emails[0].address
+    if Template.instance().$("a").text() == "Like"
+      Likes.insert post:@_id, user:Meteor.user().emails[0].address
+    else
+      liked = Likes.findOne(post:@_id, user:Meteor.user().emails[0].address)
+      Likes.remove _id:liked?._id
 
   "click button": () ->
     comment = Template.instance().$("input").val()
@@ -10,7 +14,7 @@ Template.post.events
 
 Template.post.helpers
   likesCount: -> Likes.find(post:@_id)?.count()
-  notLiked:-> if Meteor.user() then !Likes.findOne({post:@_id, user:Meteor.user().emails[0].address})
+  likedText:-> if Meteor.user() and Likes.findOne({post:@_id, user:Meteor.user().emails[0].address}) then "Unlike" else "Like"
   commentsCount: -> Comments.find(post:@_id)?.count()
   timeLiked: -> moment(@timestamp).fromNow()
   comments: -> Comments.find {post:@_id}

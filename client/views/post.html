@@ -4,14 +4,12 @@
       Posted by <small>{{user}} <br> {{timeLiked}}</small>
     </div>
 
-    <div class="col-sm-9">
-      <h4>{{post}}</h4>
-
-      {{#if userLoggedIn}}
-        {{#if notLiked}}
-          <a href="#">Like</a>
+    <div class="col-sm-7">
+      <h4>{{post}}
+        {{#if userLoggedIn}}
+          <a href="#" class="label label-primary label-as-badge">{{likedText}}</a>
         {{/if}}
-      {{/if}}
+      </h4>
 
       {{#if likesCount}}
         <i class="glyphicon glyphicon-thumbs-up navy"></i>
@@ -22,6 +20,8 @@
         <i class="glyphicon glyphicon-comment navy"></i>
         <small>{{commentsCount}}</small>
       {{/if}}
+
+      <hr/>
 
       {{#each comments}}
         {{> comment}}
