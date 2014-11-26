@@ -1,6 +1,3 @@
-Template.posts.rendered = ->
-  Session.set("show-comments", false)
-
 Template.posts.helpers
   posts: -> Posts.find({}, {sort: {timestamp: -1}})
   user: -> Meteor.user()
