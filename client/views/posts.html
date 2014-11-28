@@ -5,6 +5,16 @@
         Welcome to Meteor Stream
         <h4 class="pull-right">{{> loginButtons}}</h4>
       </h1>
+      <div class="row">
+        <h4 class="col-sm-3">Search</h4>
+        <div class="input-group col-sm-7">
+          <input type="text" class="form-control" name="search" placeholder="search">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" name="clear-search">x</button>
+          </span>
+        </div>
+      </div>
+
     </div>
     {{#if user}}
       <div class="row">

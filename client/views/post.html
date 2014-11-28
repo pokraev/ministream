@@ -7,7 +7,10 @@
     <div class="col-sm-7">
       <h4>{{post}}
         {{#if userLoggedIn}}
-          <a href="#" class="label label-primary label-as-badge">{{likedText}}</a>
+          <a name="btnLike" href="#" class="label label-primary label-as-badge">{{likedText}}</a>
+        {{/if}}
+        {{#if ownPost}}
+          <a name="btnRemove" href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
         {{/if}}
       </h4>
 
@@ -46,5 +49,8 @@
     <i>{{comment}}
       <small class="gray"> by {{user}} {{livestamp date}}</small>
     </i>
+    {{#if ownComment}}
+      <a name="btnRemoveComment" href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+    {{/if}}
   </div>
 </template>
