@@ -1,4 +1,5 @@
-userEmail = -> Meteor.user().emails[0].address
+userEmail = ->
+  Meteor.user().emails[0].address
 
 Template.posts.rendered = ->
   Session.setDefault "search", ""
@@ -13,7 +14,7 @@ Template.posts.events
   "click button[name=submit-post]": ()->
     post = $("input[name=post]").val()
     if post
-      Posts.insert {post:post, user:userEmail, timestamp:Date.now()}
+      Posts.insert {post:post, user:userEmail(), timestamp:Date.now()}
       Template.instance().$("input[name=post]").val('')
 
   "input input[name=search]": ->

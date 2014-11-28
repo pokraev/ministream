@@ -10,7 +10,7 @@
           <a name="btnLike" href="#" class="label label-primary label-as-badge">{{likedText}}</a>
         {{/if}}
         {{#if ownPost}}
-          <a name="btnRemove" href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+          <a name="btnRemove" href="#" class="label label-primary label-as-badge">x</a>
         {{/if}}
       </h4>
 
@@ -50,7 +50,7 @@
       <small class="gray"> by {{user}} {{livestamp date}}</small>
     </i>
     {{#if ownComment}}
-      <a name="btnRemoveComment" href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+      <a name="btnRemoveComment" href="#" class="label label-primary label-as-badge">x</a>
     {{/if}}
   </div>
 </template>
