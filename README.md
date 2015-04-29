@@ -1,4 +1,4 @@
 ministream
 ==========
 
-A simple Meteor demo
+A simple Meteor demo at http://ministream.meteor.com
